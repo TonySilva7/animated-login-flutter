@@ -42,27 +42,30 @@ class StaggerAnimation extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 50),
       child: InkWell(
         onTap: () => controller.forward(),
-        child: buttonZoomOut.value <= 60
-            ? Container(
-                width: buttonSqueeze.value,
-                height: 60,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(247, 64, 106, 1.0),
-                  borderRadius: BorderRadius.circular(30.0),
+        child: Hero(
+          tag: 'fade',
+          child: buttonZoomOut.value <= 60
+              ? Container(
+                  width: buttonSqueeze.value,
+                  height: 60,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(247, 64, 106, 1.0),
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  child: Center(
+                    child: _buildInside(context),
+                  ),
+                )
+              : Container(
+                  width: buttonZoomOut.value,
+                  height: buttonZoomOut.value,
+                  decoration: BoxDecoration(
+                    color: const Color.fromRGBO(247, 64, 106, 1.0),
+                    shape: buttonZoomOut.value < 500 ? BoxShape.circle : BoxShape.rectangle,
+                  ),
                 ),
-                child: Center(
-                  child: _buildInside(context),
-                ),
-              )
-            : Container(
-                width: buttonZoomOut.value,
-                height: buttonZoomOut.value,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(247, 64, 106, 1.0),
-                  shape: buttonZoomOut.value < 500 ? BoxShape.circle : BoxShape.rectangle,
-                ),
-              ),
+        ),
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_animated/screens/home/home_screen.dart';
 import 'package:login_animated/screens/login/widgets/form_container.dart';
 import 'package:login_animated/screens/login/widgets/signup_button.dart';
 import 'package:login_animated/screens/login/widgets/stagger_animation.dart';
@@ -21,6 +22,16 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
       vsync: this,
       duration: const Duration(milliseconds: 2000),
     );
+
+    _controller.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const HomeScreen(),
+          ),
+        );
+      }
+    });
   }
 
   @override
