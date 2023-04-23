@@ -29,7 +29,7 @@ class StaggerAnimation extends StatelessWidget {
         ).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.5, 1.0, curve: Curves.ease),
+            curve: const Interval(0.3, 0.7, curve: Curves.ease),
           ),
         );
 

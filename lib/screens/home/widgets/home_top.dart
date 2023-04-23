@@ -53,7 +53,7 @@ class HomeTop extends StatelessWidget {
                         color: Color.fromRGBO(80, 210, 194, 0.7),
                       ),
                       child: Text(
-                        '2',
+                        '5',
                         style: TextStyle(
                           fontSize: containerGrow.value * 20.0,
                           fontWeight: FontWeight.w400,
